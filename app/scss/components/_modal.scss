@@ -16,28 +16,18 @@
   outline: transparent;
   transition: opacity .5s ease-in-out, transform .5s ease-in-out;
   @include r($lg) {
-    padding: 65px 40px;
-  }
-  @media (max-width: 870px) {
-    padding: 60px 35px;
-    border-radius: 22px;
+    border-radius: 26px;
   }
   @include r($tablet) {
-    padding: 40px 30px;
-    max-height: 810px;
-    overflow-y: scroll;
+    width: 98%;
+    max-width: 100%;
+    padding: 26px;
   }
   @include r($sm) {
-    padding: 35px 30px 30px;
-  }
-  @media (max-width: 560px) {
-    max-height: 680px;
+    border-radius: 22px;
   }
   @include r($phone) {
-    padding: 35px 25px 30px;
-  }
-  @media (max-width: 370px) {
-    padding: 35px 20px 30px;
+    padding: 24px 18px;
   }
 
   &::-webkit-scrollbar {
@@ -57,6 +47,20 @@
     line-height: 1.2;
     font-weight: 410;
     margin-bottom: 32px;
+    @include r($desktop) {
+      font-size: 36px;
+    }
+    @include r($tablet) {
+      font-size: 32px;
+      letter-spacing: 0;
+      margin-bottom: 26px;
+    }
+    @include r($sm) {
+      font-size: 28px;
+    }
+    @include r($phone) {
+      font-size: 24px;
+    }
   }
 
   &__info {
@@ -64,6 +68,9 @@
     font-weight: 600;
     padding-top: 32px;
     border-top: 1px solid #e5e5ea;
+    @include r($tablet) {
+      padding-top: 26px;
+    }
   }
 
   &__text {
@@ -71,11 +78,17 @@
     font-size: 16px;
     line-height: 1.35;
     margin-bottom: 18px;
+    @include r($phone) {
+      font-size: 14px;
+    }
   }
 
   &__links {
-    @include flex-column(8);
+    @include flex-column(12);
     line-height: 1.3;
+    @include r($tablet) {
+      gap: 16px;
+    }
   }
 
   &__link {
@@ -106,10 +119,20 @@
     font-family: $rfDewi;
     font-weight: 600;
     border-top: 1px solid #e5e5ea;
+    @include r($sm) {
+      font-size: 16px;
+    }
+    @media (max-width: 410px) {
+      font-size: 14px;
+    }
   }
 
   &__country, &__age {
     @include flex-align-center(24);
+    @include r($phone) {
+      justify-content: space-between;
+      gap: 16px;
+    }
 
     &-name {
       color: rgba($black100, .64);
@@ -134,11 +157,11 @@
     outline: 1px solid transparent;
     transition: outline .4s, background-color .4s;
     @media (max-width: 395px) {
-      right: 8px;
+      right: 9px;
       top: 10px;
     }
     @media (max-width: 375px) {
-      top: 7px;
+      top: 9px;
     }
 
     &:hover {
