@@ -1,0 +1,161 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 720px;
+  min-height: 420px;
+  width: 100%;
+  background-color: $white;
+  padding: 32px;
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -15px rgba(51, 51, 51, .2);
+  transform: translate(-50%, 0%);
+  opacity: 0;
+  z-index: 180;
+  pointer-events: none;
+  outline: transparent;
+  transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+  @include r($lg) {
+    padding: 65px 40px;
+  }
+  @media (max-width: 870px) {
+    padding: 60px 35px;
+    border-radius: 22px;
+  }
+  @include r($tablet) {
+    padding: 40px 30px;
+    max-height: 810px;
+    overflow-y: scroll;
+  }
+  @include r($sm) {
+    padding: 35px 30px 30px;
+  }
+  @media (max-width: 560px) {
+    max-height: 680px;
+  }
+  @include r($phone) {
+    padding: 35px 25px 30px;
+  }
+  @media (max-width: 370px) {
+    padding: 35px 20px 30px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.active {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-family: $sequelSansRoman;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+    font-weight: 410;
+    margin-bottom: 32px;
+  }
+
+  &__info {
+    font-family: $rfDewi;
+    font-weight: 600;
+    padding-top: 32px;
+    border-top: 1px solid #e5e5ea;
+  }
+
+  &__text {
+    max-width: 555px;
+    font-size: 16px;
+    line-height: 1.35;
+    margin-bottom: 18px;
+  }
+
+  &__links {
+    @include flex-column(8);
+    line-height: 1.3;
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 1.1;
+    color: $accent450;
+    border-bottom: 1px solid $accent450;
+    border-radius: 2px;
+    outline: 1px solid transparent;
+    transition: color .4s, border .4s, outline .4s;
+
+    &:hover {
+      color: $black100;
+      border-bottom-color: $black100;
+    }
+
+    &:focus {
+      outline-color: $black100;
+      border-bottom-color: transparent;
+    }
+  }
+
+  &__countries, &__ages {
+    @include flex-column(12);
+    padding-top: 24px;
+    margin-bottom: 24px;
+    line-height: 1.23;
+    font-family: $rfDewi;
+    font-weight: 600;
+    border-top: 1px solid #e5e5ea;
+  }
+
+  &__country, &__age {
+    @include flex-align-center(24);
+
+    &-name {
+      color: rgba($black100, .64);
+      max-width: 230px;
+      width: 100%;
+    }
+  }
+
+  &__ages {
+    margin-bottom: 0;
+  }
+
+  &__close {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    background-color: #F2F4F7;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    border-radius: 50%;
+    outline: 1px solid transparent;
+    transition: outline .4s, background-color .4s;
+    @media (max-width: 395px) {
+      right: 8px;
+      top: 10px;
+    }
+    @media (max-width: 375px) {
+      top: 7px;
+    }
+
+    &:hover {
+      background-color: $accent;
+
+      svg path {
+        fill: $black100;
+      }
+    }
+
+    &:focus {
+      outline-color: $accent350;
+      background-color: transparent;
+
+      svg path {
+        fill: $black100;
+      }
+    }
+  }
+}

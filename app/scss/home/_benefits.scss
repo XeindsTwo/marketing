@@ -1,0 +1,89 @@
+.benefits {
+  background-color: $white;
+  box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 24px;
+  margin: 0 12px;
+  padding: 64px 0;
+
+  &__ball {
+    @include bg;
+    width: 780px;
+    height: 740px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background-image: url("../images/ball.svg");
+  }
+
+  &__text {
+    font-family: $sequelSansRoman;
+    font-weight: 410;
+    font-size: 40px;
+    text-align: center;
+    line-height: .95;
+    letter-spacing: -0.2px;
+
+    span {
+      opacity: .4;
+    }
+  }
+
+  &__content {
+    @include flex-column(22);
+    margin: 0 auto 100px;
+    align-items: center;
+    max-width: 425px;
+  }
+
+  &__buttons {
+    @include flex-align-center(8);
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &__btn {
+    @include flex-center;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: $gray200;
+    width: 40px;
+    height: 40px;
+    border: 1px solid transparent;
+    transition: background-color .4s, border .4s;
+
+    &:hover {
+      background-color: $accent;
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: $accent350;
+    }
+
+    &.swiper-button-disabled {
+      pointer-events: none;
+      user-select: none;
+
+      svg {
+        opacity: .32;
+      }
+    }
+  }
+
+  .swiper-wrapper {
+    margin-top: 263px;
+  }
+
+  .swiper-slide {
+    transition: opacity 0.4s, filter 0.4s;
+    opacity: 0;
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+  }
+
+  .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0;
+  }
+}

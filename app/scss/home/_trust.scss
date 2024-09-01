@@ -1,0 +1,23 @@
+.trust {
+  margin: 136px 0;
+
+  &__title {
+    font-size: 60px;
+    line-height: 1;
+    font-weight: 405;
+    font-family: $sequelSansBook;
+    max-width: 830px;
+    text-align: center;
+    margin: 0 auto 32px;
+  }
+
+  &__text {
+    text-align: center;
+    margin: 0 auto 64px;
+    max-width: 585px;
+  }
+
+  &__img {
+    @include bg;
+  }
+}
