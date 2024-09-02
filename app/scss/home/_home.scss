@@ -59,16 +59,16 @@
       font-size: 46px;
       max-width: 350px;
     }
-    @media (max-width: 530px) {
-      font-size: 42px;
-      max-width: 330px;
-    }
     @include r($phone) {
-      font-size: 38px;
-      max-width: 290px;
+      font-size: 44px;
+      max-width: 350px;
     }
     @media (max-width: 410px) {
       letter-spacing: 0;
+    }
+    @media (max-width: 380px) {
+      font-size: 40px;
+      max-width: 320px;
     }
   }
 
