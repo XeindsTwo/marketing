@@ -7,6 +7,9 @@
     @include r($tablet) {
       margin-top: 25px;
     }
+    @include r($phone) {
+      gap: 20px;
+    }
   }
 
   &__right {

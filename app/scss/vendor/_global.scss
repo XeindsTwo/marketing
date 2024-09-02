@@ -21,6 +21,9 @@ body {
   background-color: $light-gray;
   position: relative;
   overflow-x: hidden;
+  @include r($phone) {
+    font-size: 14px;
+  }
 }
 
 .body {
