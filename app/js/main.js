@@ -1,8 +1,7 @@
-/*import {bindScrollToLinks} from './gsap.js';
+/*import {bindScrollToLinks} from './gsap.js';*/
 import {setupMobileMenu} from "./mobileMenu.js";
 
-bindScrollToLinks();
-setupMobileMenu();*/
+setupMobileMenu();
 
 document.querySelectorAll('[data-dropdown-btn]').forEach((btn) => {
   const listDropdown = btn.nextElementSibling;
