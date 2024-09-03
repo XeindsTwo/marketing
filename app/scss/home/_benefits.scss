@@ -4,6 +4,27 @@
   border-radius: 24px;
   margin: 0 12px;
   padding: 64px 0;
+  @include r($desktop) {
+    border-radius: 18px;
+  }
+  @include r($lg) {
+    padding: 58px 0;
+  }
+  @include r($sm) {
+    padding: 44px 0;
+  }
+  @media (max-width: 515px) {
+    margin: 0 7px;
+  }
+  @include r($phone) {
+    margin: 0 5px;
+  }
+  @media (max-width: 440px) {
+    padding: 38px 0;
+  }
+  @media (max-width: 400px) {
+    padding: 34px 0;
+  }
 
   &__ball {
     @include bg;
@@ -13,6 +34,70 @@
     overflow: hidden;
     position: relative;
     background-image: url("../images/ball.svg");
+    @media (max-width: 1300px) {
+      width: 730px;
+      height: 710px;
+    }
+    @include r($desktop) {
+      width: 670px;
+      height: 670px;
+    }
+    @include r($lg) {
+      width: 600px;
+      height: 600px;
+    }
+    @media (max-width: 910px) {
+      width: 580px;
+      height: 580px;
+    }
+    @include r($tablet) {
+      width: 540px;
+      height: 540px;
+    }
+    @media (max-width: 660px) {
+      width: 510px;
+      height: 510px;
+    }
+    @include r($sm) {
+      width: 480px;
+      height: 480px;
+    }
+    @media (max-width: 560px) {
+      width: 440px;
+      height: 440px;
+    }
+    @media (max-width: 500px) {
+      width: 410px;
+      height: 410px;
+    }
+    @include r($phone) {
+      width: 390px;
+      height: 390px;
+    }
+    @media (max-width: 440px) {
+      width: 360px;
+      height: 360px;
+    }
+    @media (max-width: 410px) {
+      width: 345px;
+      height: 345px;
+    }
+    @media (max-width: 395px) {
+      width: 330px;
+      height: 330px;
+    }
+    @media (max-width: 385px) {
+      width: 320px;
+      height: 320px;
+    }
+    @media (max-width: 370px) {
+      width: 310px;
+      height: 310px;
+    }
+    @media (max-width: 365px) {
+      width: 300px;
+      height: 300px;
+    }
   }
 
   &__text {
@@ -22,6 +107,31 @@
     text-align: center;
     line-height: .95;
     letter-spacing: -0.2px;
+    @media (max-width: 1300px) {
+      font-size: 36px;
+    }
+    @media (max-width: 1100px) {
+      font-size: 32px;
+    }
+    @media (max-width: 910px) {
+      font-size: 28px;
+      line-height: 1.1;
+    }
+    @include r($tablet) {
+      font-size: 26px;
+    }
+    @include r($sm) {
+      font-size: 24px;
+    }
+    @media (max-width: 500px) {
+      font-size: 22px;
+    }
+    @media (max-width: 440px) {
+      font-size: 20px;
+    }
+    @media (max-width: 380px) {
+      font-size: 19px;
+    }
 
     span {
       opacity: .4;
@@ -33,6 +143,38 @@
     margin: 0 auto 100px;
     align-items: center;
     max-width: 425px;
+    @media (max-width: 1300px) {
+      max-width: 385px;
+    }
+    @media (max-width: 1100px) {
+      max-width: 345px;
+    }
+    @media (max-width: 910px) {
+      max-width: 300px;
+    }
+    @include r($tablet) {
+      max-width: 280px;
+    }
+    @include r($sm) {
+      max-width: 250px;
+      margin-bottom: 80px;
+    }
+    @media (max-width: 560px) {
+      margin-bottom: 70px;
+    }
+    @media (max-width: 500px) {
+      max-width: 230px;
+    }
+    @media (max-width: 440px) {
+      max-width: 210px;
+    }
+    @media (max-width: 395px) {
+      margin-bottom: 60px;
+    }
+    @media (max-width: 380px) {
+      max-width: 200px;
+      margin-bottom: 50px;
+    }
   }
 
   &__buttons {
@@ -50,6 +192,18 @@
     height: 40px;
     border: 1px solid transparent;
     transition: background-color .4s, border .4s;
+    @media (max-width: 560px) {
+      width: 38px;
+      height: 38px;
+    }
+    @include r($phone) {
+      width: 36px;
+      height: 36px;
+      svg {
+        width: auto;
+        height: 11px;
+      }
+    }
 
     &:hover {
       background-color: $accent;
@@ -72,6 +226,30 @@
 
   .swiper-wrapper {
     margin-top: 263px;
+    @media (max-width: 1100px) {
+      margin-top: 220px;
+    }
+    @media (max-width: 910px) {
+      margin-top: 200px;
+    }
+    @include r($tablet) {
+      margin-top: 180px;
+    }
+    @include r($sm) {
+      margin-top: 150px;
+    }
+    @media (max-width: 560px) {
+      margin-top: 140px;
+    }
+    @media (max-width: 500px) {
+      margin-top: 120px;
+    }
+    @media (max-width: 440px) {
+      margin-top: 100px;
+    }
+    @media (max-width: 395px) {
+      margin-top: 90px;
+    }
   }
 
   .swiper-slide {
