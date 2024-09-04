@@ -1,5 +1,17 @@
 .trust {
   margin: 136px 0;
+  @include r($desktop) {
+    margin: 120px 0;
+  }
+  @media (max-width: 860px) {
+    margin: 110px 0;
+  }
+  @include r($sm) {
+    margin: 90px 0;
+  }
+  @include r($phone) {
+    margin: 80px 0;
+  }
 
   &__title {
     font-size: 60px;
@@ -9,15 +21,89 @@
     max-width: 830px;
     text-align: center;
     margin: 0 auto 32px;
+    @media (max-width: 1300px) {
+      font-size: 56px;
+    }
+    @media (max-width: 1200px) {
+      font-size: 52px;
+      max-width: 750px;
+    }
+    @media (max-width: 1100px) {
+      font-size: 48px;
+      max-width: 700px;
+      line-height: 1.05;
+    }
+    @include r($lg) {
+      font-size: 44px;
+      max-width: 630px;
+    }
+    @media (max-width: 860px) {
+      font-size: 40px;
+      max-width: 590px;
+    }
+    @include r($tablet) {
+      font-size: 36px;
+      max-width: 530px;
+    }
+    @include r($sm) {
+      line-height: 1.1;
+      font-size: 32px;
+      max-width: 450px;
+    }
+    @media (max-width: 540px) {
+      font-size: 28px;
+      max-width: 410px;
+    }
+    @include r($phone) {
+      font-size: 26px;
+      max-width: 380px;
+    }
+    @media (max-width: 400px) {
+      font-size: 24px;
+      max-width: 340px;
+    }
+    @media (max-width: 365px) {
+      font-size: 22px;
+    }
   }
 
   &__text {
     text-align: center;
     margin: 0 auto 64px;
     max-width: 585px;
+    @include r($tablet) {
+      font-size: 16px;
+      max-width: 530px;
+    }
+    @media (max-width: 420px) {
+      font-size: 14px;
+      max-width: 340px;
+      margin-bottom: 50px;
+    }
   }
 
   &__img {
     @include bg;
+    @media (max-width: 680px) {
+      display: none;
+    }
+
+    &.mobile {
+      display: none;
+      @media (max-width: 680px) {
+        display: block;
+        margin: 0 auto;
+      }
+      @include r($phone) {
+        height: auto;
+        width: 230px;
+      }
+      @media (max-width: 380px) {
+        width: 220px;
+      }
+      @media (max-width: 360px) {
+        width: 210px;
+      }
+    }
   }
 }
