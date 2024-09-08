@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="html" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Gods of Marketing: Crypto influencer marketing agency for promoting crypto and NFT projects worldwide">
+  <meta http-equiv="content-type" content="public, max-age=3600">
+  <meta name="theme-color" content="#fff">
+  <title>Gods of Marketing | Main</title>
+  <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<section>
+  <div class="container">
+    <a class="authorization__link admin" href="/">
+      <img src="../../images/logo.svg" alt="logo">
+    </a>
+    <h2 class="admin__title">Редактирование референса</h2>
+    <a class="admin__back" href="/php/">Вернуться назад</a>
+    <form id="editReferenceForm" method="post" enctype="multipart/form-data" class="modal-form">
+      <input type="hidden" name="id" value="<?php echo htmlspecialchars($reference['id']); ?>">
+      <ul class="modal__list">
+        <li>
+          <label class="label" for="name">Название:</label>
+          <input class="input input--admin" type="text" id="name" name="name" maxlength="255"
+                 value="<?php echo htmlspecialchars($reference['name']); ?>" required>
+        </li>
+        <li>
+          <label class="label" for="social_link_1">Социальная ссылка 1:</label>
+          <input class="input input--admin" type="url" id="social_link_1" name="social_link_1" maxlength="255"
+                 value="<?php echo htmlspecialchars($reference['social_link_1']); ?>" required>
+        </li>
+        <li>
+          <label class="label" for="social_link_2">Социальная ссылка 2:</label>
+          <input class="input input--admin" type="url" id="social_link_2" name="social_link_2" maxlength="255"
+                 value="<?php echo htmlspecialchars($reference['social_link_2']); ?>" required>
+        </li>
+        <li>
+          <label class="label" for="social_link_3">Социальная ссылка 3:</label>
+          <input class="input input--admin" type="url" id="social_link_3" name="social_link_3" maxlength="255"
+                 value="<?php echo htmlspecialchars($reference['social_link_3']); ?>" required>
+        </li>
+        <li>
+          <label class="label" for="short_description">Краткое описание:</label>
+          <textarea class="input input--admin input--textarea" id="short_description" name="short_description" rows="4"
+                    required><?php echo htmlspecialchars($reference['short_description']); ?></textarea>
+        </li>
+        <li>
+          <label class="label" for="full_description">Полное описание:</label>
+          <textarea class="input input--admin input--textarea" id="full_description" name="full_description" rows="6"
+                    required><?php echo htmlspecialchars($reference['full_description']); ?></textarea>
+        </li>
+        <li class="modal__item--long">
+          <label class="label" for="image">Изображение:</label>
+          <input class="input input--admin" type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .webp">
+          <?php if (!empty($reference['image_path'])): ?>
+          <img class="admin__img" src="images/test.jpg"
+               alt="Текущее изображение" width="298" height="298">
+          <?php endif; ?>
+        </li>
+      </ul>
+      <div class="modal__admin-links">
+        <span class="modal__admin-subtitle">Дополнительные ссылки</span>
+        <div class="link-container" id="linkContainer">
+          <div class="link-item" data-index="<?php echo $index; ?>">
+            <div class="link-item__left">
+              <label class="label" for="additional_link_name_<?php echo $index + 1; ?>">Имя <?php echo $index + 1; ?>
+                ссылки:</label>
+              <input class="input input--admin" type="text" name="additional_links[<?php echo $index; ?>][name]"
+                     id="additional_link_name_<?php echo $index + 1; ?>"
+                     value="<?php echo htmlspecialchars($link['link_name']); ?>" required>
+            </div>
+            <div class="link-item__left">
+              <label class="label" for="additional_link_url_<?php echo $index + 1; ?>">URL <?php echo $index + 1; ?>
+                ссылки:</label>
+              <input class="input input--admin" type="url" name="additional_links[<?php echo $index; ?>][url]"
+                     id="additional_link_url_<?php echo $index + 1; ?>"
+                     value="<?php echo htmlspecialchars($link['link_url']); ?>" required>
+            </div>
+            <button type="button" class="link-item__delete">Удалить</button>
+          </div>
+        </div>
+        <button class="link-item__add" type="button" id="addLinkBtn">Добавить ссылку</button>
+      </div>
+      <button class="modal__admin-create" style="margin-bottom: 20px;" type="submit">Обновить референс</button>
+    </form>
+  </div>
+</section>
+</body>
+</html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+  let previousImageSrc = '';
+
+  document.getElementById('image').addEventListener('change', function () {
+    const fileInput = this;
+    const imagePreview = document.querySelector('.admin__img');
+
+    if (imagePreview.src) {
+      previousImageSrc = imagePreview.src;
+    }
+
+    if (fileInput.files && fileInput.files[0]) {
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        if (!file.type.startsWith('image/')) {
+          showToast('Файл должен быть изображением (jpg, png, webp и т.д).', '#f44336');
+          fileInput.value = '';
+          return;
+        }
+
+        if (file.size === 0) {
+          showToast('Файл пустой. Пожалуйста, выберите другой файл', '#f44336');
+          fileInput.value = '';
+          return;
+        }
+
+        imagePreview.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      imagePreview.src = previousImageSrc;
+    }
+  });
+
+  document.getElementById('addLinkBtn').addEventListener('click', function () {
+    const container = document.getElementById('linkContainer');
+    const index = container.children.length;
+
+    if (index >= 10) {
+      this.disabled = true;
+      return;
+    }
+
+    const linkItem = document.createElement('div');
+    linkItem.classList.add('link-item');
+    linkItem.dataset.index = index;
+    linkItem.innerHTML = `
+      <div class="link-item__left">
+        <label class="label" for="additional_link_name_${index + 1}">Имя ${index + 1} ссылки:</label>
+        <input class="input input--admin" type="text" name="additional_links[${index}][name]" id="additional_link_name_${index + 1}" required>
+      </div>
+      <div class="link-item__left">
+        <label class="label" for="additional_link_url_${index + 1}">URL ${index + 1} ссылки:</label>
+        <input class="input input--admin" type="url" name="additional_links[${index}][url]" id="additional_link_url_${index + 1}" required>
+      </div>
+      <button type="button" class="link-item__delete">Удалить</button>
+    `;
+
+    container.appendChild(linkItem);
+
+    if (container.children.length >= 10) {
+      this.disabled = true;
+    }
+  });
+
+  document.getElementById('linkContainer').addEventListener('click', function (event) {
+    if (event.target.classList.contains('link-item__delete')) {
+      const linkItem = event.target.closest('.link-item');
+      linkItem.remove();
+      updateLinkIndices();
+      document.getElementById('addLinkBtn').disabled = false;
+    }
+  });
+
+  function updateLinkIndices() {
+    const linkItems = document.querySelectorAll('.link-item');
+    linkItems.forEach((item, index) => {
+      item.dataset.index = index;
+      item.querySelector('label[for^="additional_link_name"]').setAttribute('for', `additional_link_name_${index + 1}`);
+      item.querySelector('input[name^="additional_links"][name*="[name]"]').name = `additional_links[${index}][name]`;
+      item.querySelector('input[id^="additional_link_name"]').id = `additional_link_name_${index + 1}`;
+
+      item.querySelector('label[for^="additional_link_url"]').setAttribute('for', `additional_link_url_${index + 1}`);
+      item.querySelector('input[name^="additional_links"][name*="[url]"]').name = `additional_links[${index}][url]`;
+      item.querySelector('input[id^="additional_link_url"]').id = `additional_link_url_${index + 1}`;
+    });
+  }
+
+  document.getElementById('editReferenceForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const imageInput = document.getElementById('image');
+    const file = imageInput.files[0];
+
+    if (file && !file.type.startsWith('image/')) {
+      showToast('Файл изображения должен быть изображением (jpg, png, webp и т.д).', '#f44336');
+      return;
+    }
+
+    if (file && file.size === 0) {
+      showToast('Файл изображения пустой. Пожалуйста, выберите другой файл', '#f44336');
+      return;
+    }
+
+    const formData = new FormData(this);
+
+    fetch('update_reference.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          Toastify({
+            text: data.message,
+            backgroundColor: 'green'
+          }).showToast();
+          setTimeout(() => {
+            window.location.href = 'http://gods/php';
+          }, 3000);
+        } else {
+          Toastify({
+            text: data.message,
+            backgroundColor: 'red'
+          }).showToast();
+        }
+      })
+      .catch(error => {
+        Toastify({
+          text: 'Произошла ошибка при сохранении данных',
+          backgroundColor: 'red'
+        }).showToast();
+      });
+  });
+
+  function showToast(message, backgroundColor = "#333") {
+    Toastify({
+      text: message,
+      backgroundColor: backgroundColor,
+      duration: 3000
+    }).showToast();
+  }
+</script>

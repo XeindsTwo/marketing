@@ -124,3 +124,8 @@ body {
   background-color: $accent;
   color: $black100;
 }
+
+.logo {
+  display: flex;
+  flex-shrink: 0;
+}

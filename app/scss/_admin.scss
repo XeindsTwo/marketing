@@ -1,0 +1,176 @@
+.admin {
+  &__title {
+    margin-top: 60px;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    @include r($tablet) {
+      font-size: 24px;
+    }
+    @include r($sm) {
+      font-size: 22px;
+      margin-top: 50px;
+    }
+    @media (max-width: 420px) {
+      font-size: 20px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    @include r($sm) {
+      font-size: 20px;
+      margin-bottom: 17px;
+    }
+    @include r($phone) {
+      font-size: 18px;
+    }
+  }
+
+  &__logout {
+    color: darkred;
+    font-size: 15px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color .4s, border .4s;
+    @include r($phone) {
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: red;
+    }
+
+    &:focus {
+      color: darkred;
+      border-bottom-color: darkred;
+    }
+  }
+
+  &__back {
+    display: flex;
+    max-width: max-content;
+    font-size: 16px;
+    margin-bottom: 40px;
+    color: #1493a2;
+    border-radius: 4px;
+    outline: 1px solid transparent;
+    transition: color .4s, outline .4s;
+    @include r($phone) {
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: #2aabee;
+    }
+
+    &:focus {
+      outline-color: #1493a2;
+      color: #1493a2;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    margin-top: 5px;
+    border-radius: 16px;
+    @include r($desktop) {
+      height: 270px;
+    }
+    @media (max-width: 930px) {
+      height: 245px;
+    }
+    @media (max-width: 860px) {
+      height: 230px;
+    }
+    @media (max-width: 520px) {
+      height: 210px;
+    }
+    @include r($phone) {
+      height: 200px;
+    }
+    @media (max-width: 380px) {
+      height: 190px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    @media (max-width: 430px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  }
+
+  &__btn {
+    opacity: .6;
+    font-size: 16px;
+    border-bottom: 1px solid transparent;
+    transition: color .4s, opacity .4s, border .4s;
+    @media (max-width: 530px) {
+      font-size: 14px;
+    }
+
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:focus {
+      opacity: 1;
+      color: #72a11d;
+      border-bottom-color: #72a11d;
+    }
+  }
+
+  &__linktree {
+    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    @media (max-width: 530px) {
+      margin: 50px 0;
+    }
+
+    &-input {
+      max-width: 280px;
+      font-size: 16px;
+      width: 100%;
+      @include r($sm) {
+        font-size: 14px;
+      }
+    }
+
+    &-left {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    &-btn {
+      font-size: 15px;
+      color: green;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color .4s, border .4s;
+      @include r($phone) {
+        font-size: 14px;
+      }
+
+      &:hover {
+        color: #2bb42b;
+      }
+
+      &:focus {
+        color: green;
+        border-bottom-color: green;
+      }
+    }
+  }
+}

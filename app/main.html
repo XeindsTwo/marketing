@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="html active" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Gods of Marketing: Crypto influencer marketing agency for promoting crypto and NFT projects worldwide">
+  <meta http-equiv="content-type" content="public, max-age=3600">
+  <meta name="theme-color" content="#fff">
+  <title>Gods of Marketing | Main</title>
+  <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body class="body active">
+<main>
+  <section class="admin">
+    <div class="container">
+      <a class="authorization__link admin" href="/">
+        <img src="../images/logo.svg" alt="logo">
+      </a>
+      <h2 class="admin__title">Главная страница админ-панели</h2>
+      <a class="admin__logout" href="functions/logout.php?logout=1">Выйти из аккаунта</a>
+      <form class="admin__linktree" id="updateLinkForm">
+        <div class="admin__linktree-left">
+          <label class="label" for="new_url">Ссылка на LinkTree:</label>
+          <input class="admin__linktree-input input input--admin" type="url" id="new_url" name="new_url"
+                 value="<?php echo $current_url; ?>" required>
+        </div>
+        <button class="admin__linktree-btn" type="submit">Обновить ссылку</button>
+      </form>
+      <h3 class="admin__subtitle">Управление референсами</h3>
+      <div class="admin__buttons">
+        <button class="admin__btn" id="openModal">Создать новый референс</button>
+        <a class="admin__btn" href="/php/influencers">Перейти к инфлюенсерам</a>
+      </div>
+      <p class="network__empty">В настоящее время нет созданных референсов</p>
+      <ul class="network__list top">
+        <li class="network__item">
+          <div class="network__head">
+            <img class="network__img" src="../php/uploads/<?php echo htmlspecialchars($row['image_path']); ?>"
+                 alt="<?php echo htmlspecialchars($row['name']); ?>" width="298" height="298">
+            <div class="network__info">
+              <span class="network__name">апввпавпавпа</span>
+            </div>
+          </div>
+          <div class="network__content">
+            <span class="network__description">Description</span>
+            <p class="network__text non">
+              вапвапвпа
+            </p>
+            <button class="network__btn delete" data-id="<?php echo $row['id']; ?>">Удалить</button>
+            <a href="/php/references/edit_reference.php?id=<?php echo $row['id']; ?>" class="network__btn edit">Редактировать</a>
+          </div>
+        </li>
+        <li class="network__item">
+          <div class="network__head">
+            <img class="network__img" src="../php/uploads/<?php echo htmlspecialchars($row['image_path']); ?>"
+                 alt="<?php echo htmlspecialchars($row['name']); ?>" width="298" height="298">
+            <div class="network__info">
+              <span class="network__name">апввпавпавпа</span>
+            </div>
+          </div>
+          <div class="network__content">
+            <span class="network__description">Description</span>
+            <p class="network__text non">
+              вапвапвпа
+            </p>
+            <button class="network__btn delete" data-id="<?php echo $row['id']; ?>">Удалить</button>
+            <a href="/php/references/edit_reference.php?id=<?php echo $row['id']; ?>" class="network__btn edit">Редактировать</a>
+          </div>
+        </li>
+        <li class="network__item">
+          <div class="network__head">
+            <img class="network__img" src="../php/uploads/<?php echo htmlspecialchars($row['image_path']); ?>"
+                 alt="<?php echo htmlspecialchars($row['name']); ?>" width="298" height="298">
+            <div class="network__info">
+              <span class="network__name">апввпавпавпа</span>
+            </div>
+          </div>
+          <div class="network__content">
+            <span class="network__description">Description</span>
+            <p class="network__text non">
+              вапвапвпа
+            </p>
+            <button class="network__btn delete" data-id="<?php echo $row['id']; ?>">Удалить</button>
+            <a href="/php/references/edit_reference.php?id=<?php echo $row['id']; ?>" class="network__btn edit">Редактировать</a>
+          </div>
+        </li>
+        <li class="network__item">
+          <div class="network__head">
+            <img class="network__img" src="../php/uploads/<?php echo htmlspecialchars($row['image_path']); ?>"
+                 alt="<?php echo htmlspecialchars($row['name']); ?>" width="298" height="298">
+            <div class="network__info">
+              <span class="network__name">апввпавпавпа</span>
+            </div>
+          </div>
+          <div class="network__content">
+            <span class="network__description">Description</span>
+            <p class="network__text non">
+              вапвапвпа
+            </p>
+            <button class="network__btn delete" data-id="<?php echo $row['id']; ?>">Удалить</button>
+            <a href="/php/references/edit_reference.php?id=<?php echo $row['id']; ?>" class="network__btn edit">Редактировать</a>
+          </div>
+        </li>
+      </ul>
+      <?php endif; ?>
+    </div>
+  </section>
+</main>
+<div class="modal active references" id="referenceModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal__title">Создание референса</h2>
+      <button class="modal__close" aria-label="Close modal" id="closeModal" type="button">
+        <span class="sr-only">Close modal window</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path
+              d="M0.311876 11.6827C-0.108794 11.2693 -0.0942881 10.5367 0.29737 10.1451L4.44605 5.99639L0.29737 1.86221C-0.0942881 1.4633 -0.108794 0.73801 0.311876 0.31734C0.732546 -0.110583 1.46509 -0.0960775 1.85675 0.302834L5.99817 4.44426L10.1396 0.302834C10.5458 -0.10333 11.2565 -0.10333 11.6772 0.31734C12.1051 0.73801 12.1051 1.4488 11.6917 1.86221L7.55756 5.99639L11.6917 10.1378C12.1051 10.5512 12.0979 11.2548 11.6772 11.6827C11.2638 12.1034 10.5458 12.1034 10.1396 11.6972L5.99817 7.55577L1.85675 11.6972C1.46509 12.0961 0.739799 12.1034 0.311876 11.6827Z"
+              fill="#888897"/>
+        </svg>
+      </button>
+    </div>
+    <form id="createReferenceForm" enctype="multipart/form-data" class="modal-form">
+      <ul class="modal__list">
+        <li>
+          <label class="label" for="name">Название:</label>
+          <input class="input input--admin" type="text" id="name" name="name" maxlength="255" required>
+        </li>
+        <li>
+          <label class="label" for="social_link_1">Социальная ссылка 1:</label>
+          <input class="input input--admin" type="url" id="social_link_1" name="social_link_1" maxlength="255" required>
+        </li>
+        <li>
+          <label class="label" for="social_link_2">Социальная ссылка 2:</label>
+          <input class="input input--admin" type="url" id="social_link_2" name="social_link_2" maxlength="255" required>
+        </li>
+        <li>
+          <label class="label" for="social_link_3">Социальная ссылка 3:</label>
+          <input class="input input--admin" type="url" id="social_link_3" name="social_link_3" maxlength="255" required>
+        </li>
+        <li>
+          <label class="label" for="short_description">Краткое описание:</label>
+          <textarea class="input input--admin input--textarea" id="short_description" name="short_description" rows="4"
+                    required></textarea>
+        </li>
+        <li>
+          <label class="label" for="full_description">Полное описание:</label>
+          <textarea class="input input--admin input--textarea" id="full_description" name="full_description" rows="6"
+                    required></textarea>
+        </li>
+        <li class="modal__item--long">
+          <label class="label" for="image">Изображение:</label>
+          <input class="input input--admin" type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .webp"
+                 required>
+        </li>
+      </ul>
+      <div class="modal__admin-links">
+        <span class="modal__admin-subtitle">Дополнительные ссылки</span>
+        <div class="link-container">
+          <div class="link-item">
+            <div class="link-item__left">
+              <label class="label" for="additional_link_name_1">Имя 1 ссылки:</label>
+              <input class="input input--admin" type="text" name="additional_links[0][name]" id="additional_link_name_1"
+                     required>
+            </div>
+            <div class="link-item__left">
+              <label class="label" for="additional_link_url_1">URL 1 ссылки:</label>
+              <input class="input input--admin" type="url" name="additional_links[0][url]" id="additional_link_url_1"
+                     required>
+            </div>
+          </div>
+        </div>
+        <button class="link-item__add" type="button" id="addLinkBtn">Добавить ссылку</button>
+      </div>
+      <button class="modal__admin-create" type="submit">Создать референс</button>
+    </form>
+  </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+  document.getElementById('openModal').addEventListener('click', function () {
+    document.getElementById('referenceModal').classList.add('active');
+    document.body.classList.add('active');
+    document.documentElement.classList.add('active');
+  });
+
+  function closeModal() {
+    document.getElementById('referenceModal').classList.remove('active');
+    document.body.classList.remove('active');
+    document.documentElement.classList.remove('active');
+  }
+
+  document.getElementById('closeModal').addEventListener('click', closeModal);
+
+  document.getElementById('updateLinkForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new URLSearchParams(new FormData(this));
+    fetch('functions/update_link.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        let backgroundColor = data.status === 'success' ? 'green' : 'red';
+        Toastify({
+          text: data.message,
+          duration: 3000,
+          backgroundColor: backgroundColor,
+          gravity: 'top',
+          position: 'right'
+        }).showToast();
+      })
+      .catch(error => {
+        Toastify({
+          text: 'Ошибка при обновлении ссылки.',
+          duration: 3000,
+          backgroundColor: 'red',
+          gravity: 'top',
+          position: 'right'
+        }).showToast();
+        console.error('Ошибка:', error);
+      });
+  });
+
+  document.getElementById('addLinkBtn').addEventListener('click', function () {
+    const linkContainer = document.querySelector('.link-container');
+    const linkItems = linkContainer.querySelectorAll('.link-item');
+    const linkCount = linkItems.length;
+    if (linkCount >= 10) {
+      this.disabled = true;
+      return;
+    }
+    const newLink = document.createElement('div');
+    newLink.classList.add('link-item');
+    newLink.innerHTML = `
+    <div class="link-item__left">
+      <label class="label" for="additional_link_name_${linkCount + 1}">Имя ${linkCount + 1} ссылки:</label>
+      <input class="input input--admin" type="text" name="additional_links[${linkCount}][name]" id="additional_link_name_${linkCount + 1}" required>
+    </div>
+    <div class="link-item__left">
+      <label class="label" for="additional_link_url_${linkCount + 1}">URL ${linkCount + 1} ссылки:</label>
+      <input class="input input--admin" type="url" name="additional_links[${linkCount}][url]" id="additional_link_url_${linkCount + 1}" required>
+    </div>
+    <button type="button" class="link-item__delete">Удалить</button>
+    `;
+    linkContainer.appendChild(newLink);
+    if (linkCount >= 9) {
+      this.disabled = true;
+    }
+  });
+
+  document.querySelector('.modal__admin-links').addEventListener('click', function (e) {
+    if (e.target.classList.contains('link-item__delete')) {
+      const linkItem = e.target.closest('.link-item');
+      linkItem.remove();
+      const linkItems = document.querySelectorAll('.link-item');
+      if (linkItems.length < 10) {
+        document.getElementById('addLinkBtn').disabled = false;
+      }
+    }
+  });
+
+  document.getElementById('createReferenceForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    fetch('references/create_reference.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        let backgroundColor;
+        switch (data.status) {
+          case 'success':
+            backgroundColor = 'green';
+            const newCard = document.createElement('li');
+            newCard.classList.add('network__item');
+            newCard.innerHTML = `
+            <div class="network__head">
+              <img class="network__img" src="../php/uploads/${data.image_path}" alt="${data.name}" width="298" height="298">
+              <div class="network__info">
+                <span class="network__name">${data.name}</span>
+              </div>
+            </div>
+            <div class="network__content">
+              <span class="network__description">Description</span>
+              <p class="network__text non">${data.short_description}</p>
+              <button class="network__btn delete" data-id="${data.id}">Удалить</button>
+              <a class="network__btn edit" href="/php/references/edit_reference.php?id=${data.id}">Редактировать</a>
+            </div>
+          `;
+            const referenceList = document.querySelector('.network__list');
+            if (!referenceList) {
+              const newList = document.createElement('ul');
+              newList.classList.add('network__list');
+              newList.appendChild(newCard);
+              document.querySelector('.network__empty').remove();
+              document.querySelector('.container').appendChild(newList);
+            } else {
+              referenceList.appendChild(newCard);
+            }
+
+            const deleteButton = newCard.querySelector('.network__btn.delete');
+            deleteButton.addEventListener('click', function () {
+              const id = this.getAttribute('data-id');
+              if (!id) return;
+              if (confirm('Вы уверены, что хотите удалить этот референс? Отменить действие будет невозможно')) {
+                fetch('references/delete_reference.php', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  body: new URLSearchParams({id})
+                })
+                  .then(response => response.json())
+                  .then(data => {
+                    let backgroundColor = data.status === 'success' ? 'green' : 'red';
+                    Toastify({
+                      text: data.message,
+                      duration: 3000,
+                      backgroundColor: backgroundColor,
+                      gravity: 'top',
+                      position: 'right'
+                    }).showToast();
+                    if (data.status === 'success') {
+                      this.closest('.network__item').remove();
+                    }
+                  })
+                  .catch(error => {
+                    Toastify({
+                      text: 'Ошибка при удалении референса.',
+                      duration: 3000,
+                      backgroundColor: 'red',
+                      gravity: 'top',
+                      position: 'right'
+                    }).showToast();
+                    console.error('Ошибка:', error);
+                  });
+              }
+            });
+
+            break;
+          case 'error':
+            backgroundColor = 'red';
+            break;
+        }
+        Toastify({
+          text: data.message,
+          duration: 3000,
+          backgroundColor: backgroundColor,
+          gravity: 'top',
+          position: 'right'
+        }).showToast();
+        if (data.status === 'success') {
+          setTimeout(() => {
+            closeModal();
+            document.getElementById('createReferenceForm').reset();
+            document.querySelectorAll('.link-item:not(:first-child)').forEach(item => item.remove());
+            document.getElementById('addLinkBtn').disabled = false;
+          }, 250);
+        }
+      })
+      .catch(error => {
+        Toastify({
+          text: 'Произошла ошибка при создании референса',
+          duration: 3000,
+          backgroundColor: 'red',
+          gravity: 'top',
+          position: 'right'
+        }).showToast();
+        console.error('Ошибка:', error);
+      });
+  });
+
+  document.querySelectorAll('.network__btn.delete').forEach(button => {
+    button.addEventListener('click', function () {
+      const id = this.getAttribute('data-id');
+      if (!id) return;
+      if (confirm('Вы уверены, что хотите удалить этот референс? Отменить действие будет невозможно')) {
+        fetch('references/delete_reference.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({id})
+        })
+          .then(response => response.json())
+          .then(data => {
+            let backgroundColor = data.status === 'success' ? 'green' : 'red';
+            Toastify({
+              text: data.message,
+              duration: 3000,
+              backgroundColor: backgroundColor,
+              gravity: 'top',
+              position: 'right'
+            }).showToast();
+            if (data.status === 'success') {
+              this.closest('.network__item').remove();
+            }
+          })
+          .catch(error => {
+            Toastify({
+              text: 'Ошибка при удалении референса.',
+              duration: 3000,
+              backgroundColor: 'red',
+              gravity: 'top',
+              position: 'right'
+            }).showToast();
+            console.error('Ошибка:', error);
+          });
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.getElementById('referenceModal').classList.contains('active')) {
+      closeModal();
+    }
+  });
+</script>
+</body>
+</html>

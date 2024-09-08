@@ -69,8 +69,8 @@
     max-width: max-content;
     font-size: 14px;
     padding: 14px 50px;
-    color: $deep-forest-green;
-    background-color: $accent150;
+    background-color: $accent350;
+    color: $white;
     border-radius: 6px;
     border: 1px solid transparent;
     transition: background-color .4s, color .4s, border .4s, box-shadow .5s;
@@ -79,6 +79,7 @@
     &:hover {
       background-color: transparent;
       border-color: $midnight-blue;
+      color: $black100;
     }
 
     &:focus {

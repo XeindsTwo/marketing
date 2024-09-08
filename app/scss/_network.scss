@@ -9,6 +9,12 @@
   @media (max-width: 890px) {
     margin-bottom: 70px;
   }
+  @include r($tablet) {
+    margin-top: 54px;
+  }
+  @include r($sm) {
+    margin-top: 44px;
+  }
   @include r($phone) {
     margin-bottom: 55px;
   }
@@ -42,10 +48,10 @@
     }
     @include r($phone) {
       font-size: 46px;
+      margin-bottom: 44px;
     }
     @media (max-width: 400px) {
       font-size: 42px;
-      margin-bottom: 56px;
     }
   }
 
@@ -109,6 +115,11 @@
     }
     @media (max-width: 395px) {
       grid-template-columns: repeat(1, 1fr);
+    }
+
+    &.top {
+      margin-bottom: 35px;
+      margin-top: 25px;
     }
   }
 
@@ -304,10 +315,60 @@
         }
       }
     }
+
+    &.delete {
+      background-color: #b90808;
+      color: $white;
+
+      &:hover {
+        border-color: transparent;
+        background-color: #ec0a0a;
+        color: $white;
+      }
+
+      &:focus {
+        border-color: #ec0a0a;
+        background-color: transparent;
+        color: #333333;
+      }
+    }
+
+    &.edit {
+      margin-top: 10px;
+      background-color: #da7f0b;
+      color: #fff;
+
+      &:hover {
+        background-color: #fa9516;
+        border-color: transparent;
+      }
+
+      &:focus {
+        border-color: #da7f0b;
+        background-color: transparent;
+        color: #333333;
+      }
+    }
   }
 
   &__empty {
     text-align: center;
     margin-top: 120px;
+    @include r($desktop) {
+      margin-top: 80px;
+    }
+    @include r($lg) {
+      margin-top: 70px;
+      font-size: 16px;
+    }
+    @include r($tablet) {
+      margin-top: 50px;
+    }
+    @include r($sm) {
+      font-size: 14px;
+    }
+    @include r($phone) {
+      margin-top: 40px;
+    }
   }
 }

@@ -12,6 +12,7 @@
   <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
 
 <header class="header">
   <div class="container">
@@ -125,6 +126,39 @@
   </div>
 </header>
 <main>
+  <ul class="flag-list">
+    <li><span class="fi fi-cn"></span> China</li>
+    <li><span class="fi fi-in"></span> India</li>
+    <li><span class="fi fi-us"></span> United States</li>
+    <li><span class="fi fi-id"></span> Indonesia</li>
+    <li><span class="fi fi-pk"></span> Pakistan</li>
+    <li><span class="fi fi-ng"></span> Nigeria</li>
+    <li><span class="fi fi-br"></span> Brazil</li>
+    <li><span class="fi fi-bd"></span> Bangladesh</li>
+    <li><span class="fi fi-ru"></span> Russia</li>
+    <li><span class="fi fi-mx"></span> Mexico</li>
+    <li><span class="fi fi-jp"></span> Japan</li>
+    <li><span class="fi fi-et"></span> Ethiopia</li>
+    <li><span class="fi fi-ph"></span> Philippines</li>
+    <li><span class="fi fi-eg"></span> Egypt</li>
+    <li><span class="fi fi-vn"></span> Vietnam</li>
+    <li><span class="fi fi-cd"></span> Congo</li>
+    <li><span class="fi fi-tr"></span> Turkey</li>
+    <li><span class="fi fi-ir"></span> Iran</li>
+    <li><span class="fi fi-de"></span> Germany</li>
+    <li><span class="fi fi-th"></span> Thailand</li>
+    <li><span class="fi fi-gb"></span> United Kingdom</li>
+    <li><span class="fi fi-fr"></span> France</li>
+    <li><span class="fi fi-tz"></span> Tanzania</li>
+    <li><span class="fi fi-it"></span> Italy</li>
+    <li><span class="fi fi-za"></span> South Africa</li>
+    <li><span class="fi fi-ke"></span> Kenya</li>
+    <li><span class="fi fi-mm"></span> Myanmar</li>
+    <li><span class="fi fi-kr"></span> South Korea</li>
+    <li><span class="fi fi-co"></span> Colombia</li>
+    <li><span class="fi fi-es"></span> Spain</li>
+  </ul>
+
   <section class="home">
   <div class="container">
     <div class="home__inner">
@@ -222,7 +256,7 @@
     </h2>
     <div class="process__inner">
       <ul class="process__list">
-        <li class="process__item">
+        <li class="process__item" id="key">
           <h3 class="process__subtitle">Planning & Preparation</h3>
           <p class="process__text">
             We start by organizing the cooperation and assigning a project team to you. Together, we create a list of
@@ -259,7 +293,11 @@
         </li>
       </ul>
       <div class="process__decor">
-
+        <img class="photo" src="images/steps/1.svg" width="515" height="385" alt="Image 1">
+        <img class="photo" src="images/steps/2.svg" width="589" height="545" alt="Image 2">
+        <img class="photo" src="images/steps/3.svg" width="504" height="505" alt="Image 2">
+        <img class="photo bottom" src="images/steps/4.png" width="513" height="468" alt="Image 2">
+        <img class="photo final" src="images/steps/5.svg" width="145" height="236" alt="Image 2">
       </div>
     </div>
   </div>
@@ -328,7 +366,6 @@
     </div>
   </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" defer></script>
-<script src="js/main.min.js" type="module"></script>
-<script src="js/mobileMenu.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/emoji-flags@latest/lib/emoji-flags.min.js" async></script>
+<script src="js/main.min.js" type="module" defer></script>
+<script src="js/mobileMenu.js" type="module" defer></script>
